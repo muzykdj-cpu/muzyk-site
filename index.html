@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>MUZYK · DJ para eventos</title>
+<meta name="description" content="MUZYK, DJ e produtor musical de São Paulo. House, Tech House e eletrônico comercial para confraternizações, lançamentos e convenções.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MUZYK · A trilha sonora que seu evento merece">
+<meta property="og:description" content="House, Tech House e eletrônico comercial para eventos corporativos. D-EDGE, Beatport Top 24 e +320 mi de visualizações.">
+<meta property="og:image" content="/img/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#09090a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2309090a'/%3E%3Ctext x='32' y='50' font-family='Arial Black,Arial' font-weight='900' font-size='50' text-anchor='middle' fill='%23e3261d'%3E%C2%A5%3C/text%3E%3C/svg%3E">
+<style>
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth}body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: palco escuro, foto como cenário, uma linha vermelha de "luz de pista" que costura as seções */
+:root{
+  --bg:#09090a; --panel:#131416; --line:#26282c; --steel:#8e9cb0; --fg:#f1f0ec; --muted:#9a9ca1; --red:#e3261d; --red-soft:#e3261d22;
+  --display:"Archivo",system-ui,sans-serif; --body:"Archivo",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+section{padding-block:88px}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;font-stretch:125%}
+h2{font-size:clamp(28px,4.4vw,48px);font-weight:900;line-height:1.02;letter-spacing:-.01em;text-transform:uppercase}
+.eyebrow{font-family:var(--display);font-stretch:125%;font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:var(--steel);margin:0 0 18px;display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:28px;height:2px;background:var(--red)}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 22px;border:1px solid var(--fg);font-family:var(--display);font-stretch:125%;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;background:transparent;color:var(--fg);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.btn:hover{background:var(--fg);color:var(--bg)}
+.btn.red{background:var(--red);border-color:var(--red);color:#fff}
+.btn.red:hover{background:#fff;border-color:#fff;color:var(--bg)}
+
+/* HERO */
+.hero{position:relative;padding:0;isolation:isolate;overflow:hidden;background:var(--bg);min-height:min(760px,92svh);display:flex;align-items:center}
+.hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;z-index:-3;background:#000}
+/* celular: vídeo vertical ocupa o fundo todo, escurecido embaixo pro texto */
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(0deg,var(--bg) 0%,#09090acc 42%,#09090a4d 100%)}
+.hero .wrap{width:100%;padding-block:64px 72px}
+/* desktop: vídeo ocupa a direita e some em degradê à esquerda, pra não ficar atrás do texto */
+@media (min-width:861px){
+  .hero .bg{left:auto;right:0;width:62%;object-position:50% 40%;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 30%);mask-image:linear-gradient(90deg,transparent 0%,#000 30%)}
+  .hero::before{background:linear-gradient(90deg,#09090a 0%,#09090a99 34%,transparent 52%),linear-gradient(0deg,var(--bg) 0%,transparent 18%)}
+  .hero .wrap{padding-block:96px 72px}
+}
+.brand{display:flex;align-items:flex-end;gap:clamp(12px,2vw,22px);margin-bottom:22px}
+.hero .logo{width:min(560px,68vw);display:block}
+/* equalizador ao lado do logo */
+.eq{display:flex;align-items:flex-end;gap:clamp(3px,.5vw,5px);height:clamp(22px,4.2vw,56px);padding-bottom:2px}
+.eq i{display:block;width:clamp(4px,.6vw,7px);height:100%;background:var(--red);transform-origin:bottom;transform:scaleY(var(--h,.5))}
+.eq i:nth-child(1){--h:.45}.eq i:nth-child(2){--h:.85}.eq i:nth-child(3){--h:.6}.eq i:nth-child(4){--h:1}.eq i:nth-child(5){--h:.35}
+@media (prefers-reduced-motion:no-preference){
+  .eq i{animation:eq 1s ease-in-out infinite alternate}
+  .eq i:nth-child(1){animation-duration:.9s}.eq i:nth-child(2){animation-duration:.55s;animation-delay:-.2s}.eq i:nth-child(3){animation-duration:.75s;animation-delay:-.4s}.eq i:nth-child(4){animation-duration:.47s}.eq i:nth-child(5){animation-duration:.66s;animation-delay:-.3s}
+  @keyframes eq{0%{transform:scaleY(.18)}100%{transform:scaleY(1)}}
+}
+/* bilhete do evento: aparece só em links personalizados */
+.ticket{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-bottom:16px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#d8d8d4}
+.ticket b{color:var(--red);font-weight:600}
+.ticket .count{border:1px solid var(--red);color:#fff;padding:5px 10px}
+.hero .role{font-family:var(--display);font-stretch:125%;letter-spacing:.5em;font-size:12px;text-transform:uppercase;color:var(--steel)}
+.hero .for{margin-top:44px;max-width:560px}
+.hero .for small{display:block;font-family:var(--mono);font-size:12px;color:var(--red);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.hero .for h1{font-size:clamp(24px,3.2vw,36px);font-weight:900;line-height:1.08;text-transform:uppercase;letter-spacing:-.005em}
+.hero .for p{color:#c9c9c6;margin-top:16px;max-width:46ch}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.yen{position:absolute;right:max(20px,env(safe-area-inset-right,0px));bottom:40px;font-family:var(--display);font-weight:900;font-size:64px;line-height:1;color:var(--fg);opacity:.9}
+
+/* PROVAS */
+.proof{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding-block:0}
+.proof .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.proof .item{padding:30px 24px 30px 0;border-right:1px solid var(--line);min-width:0}
+.proof .item+.item{padding-left:24px}
+.proof .item:last-child{border-right:0}
+.proof b{display:block;font-family:var(--display);font-stretch:125%;font-weight:900;font-size:clamp(26px,3vw,38px);line-height:1;font-variant-numeric:tabular-nums}
+.proof span{display:block;margin-top:10px;font-size:13.5px;color:var(--muted);line-height:1.4}
+@media (max-width:820px){.proof .grid{grid-template-columns:repeat(2,minmax(0,1fr))}.proof .item:nth-child(2){border-right:0}.proof .item:nth-child(3){padding-left:0}.proof .item:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+
+/* SOBRE */
+.about .grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:64px;align-items:center}
+.about figure{margin:0;position:relative}
+.about figure img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;filter:saturate(.9)}
+.about figure figcaption{position:absolute;left:-1px;bottom:24px;background:var(--red);color:#fff;font-family:var(--mono);font-size:12px;padding:8px 12px;letter-spacing:.06em}
+.about .text p{color:#cfcfcb;max-width:60ch;margin-top:18px}
+.about .text p.lead{font-size:clamp(19px,2vw,23px);color:var(--fg);line-height:1.4;margin-top:24px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.tags span{border:1px solid var(--line);padding:7px 12px;font-family:var(--mono);font-size:12px;color:var(--steel)}
+@media (max-width:820px){.about .grid{grid-template-columns:1fr;gap:36px}}
+
+/* PLANEJADOR */
+.plan{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.plan .head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:flex-end}
+.plan .head p{color:var(--muted);max-width:44ch}
+.controls{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:28px;margin-top:40px}
+.ctl label,.ctl .lbl{display:block;font-family:var(--mono);font-size:12px;color:var(--steel);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:transparent;color:var(--fg);padding:11px 16px;font-family:var(--body);font-size:14.5px;cursor:pointer;transition:border-color .15s,background .15s}
+.chip:hover{border-color:var(--steel)}
+.chip[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg);font-weight:600}
+.row2{display:flex;gap:12px}
+.row2 select{flex:1;min-width:0;background:var(--bg);color:var(--fg);border:1px solid var(--line);padding:11px 12px;font-family:var(--body);font-size:14.5px}
+@media (max-width:820px){.controls{grid-template-columns:1fr}}
+
+.curve{margin-top:40px;border:1px solid var(--line);background:var(--bg);padding:20px 20px 8px;overflow-x:auto}
+.curve svg{display:block;width:100%;min-width:560px;height:auto}
+.curve text{font-family:var(--mono);font-size:11px;fill:var(--muted)}
+.curve svg{cursor:crosshair}
+.curve .hint{font-family:var(--mono);font-size:11px;color:var(--steel);margin:0 0 10px;letter-spacing:.04em}
+.curve text.tip{fill:#fff;font-size:12px;font-weight:600}
+.phases{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-top:0}
+.phase{background:var(--bg);padding:20px;min-width:0}
+.phase .t{font-family:var(--mono);font-size:12px;color:var(--red);font-variant-numeric:tabular-nums}
+.phase h3{font-size:15px;font-weight:800;margin-top:8px;text-transform:uppercase;letter-spacing:.02em}
+.phase .bpm{font-family:var(--mono);font-size:12px;color:var(--steel);margin-top:4px}
+.phase p{font-size:14px;color:#c4c4c0;margin-top:10px;line-height:1.5}
+@media (max-width:820px){.phases{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.phases{grid-template-columns:1fr}}
+
+/* EXTRAS */
+.extras .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:40px}
+.extra{position:relative;text-align:left;background:transparent;border:1px solid var(--line);color:var(--fg);padding:24px;cursor:pointer;font:inherit;display:flex;flex-direction:column;gap:10px;transition:border-color .15s,background .15s;min-width:0}
+.extra:hover{border-color:var(--steel)}
+.extra h3{font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:.01em;padding-right:34px}
+.extra p{font-size:14.5px;color:#bdbdb9}
+.extra .tick{position:absolute;top:22px;right:22px;width:22px;height:22px;border:1px solid var(--steel);display:grid;place-items:center;font-size:14px;color:transparent}
+.extra[aria-pressed="true"]{border-color:var(--red);background:var(--red-soft)}
+.extra[aria-pressed="true"] .tick{background:var(--red);border-color:var(--red);color:#fff}
+@media (max-width:900px){.extras .grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.extras .grid{grid-template-columns:1fr}}
+
+/* PALCOS */
+.stages .mosaic{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:150px;gap:10px;margin-top:40px}
+.tile{margin:0;position:relative;overflow:hidden;background:var(--panel)}
+.tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.tile:hover img{transform:scale(1.04)}
+.tile figcaption{position:absolute;left:0;bottom:0;right:0;padding:28px 14px 12px;background:linear-gradient(0deg,#000c,transparent);font-family:var(--mono);font-size:12px;color:#fff;letter-spacing:.04em}
+.t1{grid-column:span 4;grid-row:span 3}.t2{grid-column:span 2;grid-row:span 3}
+.t3{grid-column:span 2;grid-row:span 2}.t4{grid-column:span 2;grid-row:span 2}.t5{grid-column:span 2;grid-row:span 2}
+.t6{grid-column:span 3;grid-row:span 2}.t7{grid-column:span 3;grid-row:span 2}
+@media (max-width:760px){.stages .mosaic{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:140px}.t1{grid-column:span 2;grid-row:span 2}.t2,.t3,.t4,.t5{grid-column:span 1;grid-row:span 2}.t6,.t7{grid-column:span 2;grid-row:span 2}}
+
+/* OUÇA */
+.listen .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:40px}
+.listen a{background:var(--bg);padding:26px 22px;text-decoration:none;display:flex;flex-direction:column;gap:30px;transition:background .15s;min-width:0}
+.listen a:hover{background:var(--panel)}
+.listen a b{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:18px;text-transform:uppercase}
+.listen a span{font-family:var(--mono);font-size:12px;color:var(--steel)}
+.listen a i{font-style:normal;color:var(--red);font-family:var(--mono);font-size:13px}
+@media (max-width:760px){.listen .grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* PROPOSTA / CONTATO */
+.close{position:relative;isolation:isolate;overflow:hidden}
+.close .grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:56px;align-items:start}
+.summary{border:1px solid var(--line);background:var(--panel);padding:28px}
+.summary dl{margin:18px 0 0;display:grid;grid-template-columns:auto 1fr;gap:10px 18px;font-size:14.5px}
+.summary dt{font-family:var(--mono);font-size:12px;color:var(--steel);text-transform:uppercase;padding-top:2px}
+.summary dd{margin:0;min-width:0}
+.summary .btn{margin-top:26px;width:100%;justify-content:center}
+.summary .note{font-size:12.5px;color:var(--muted);margin-top:12px}
+.contacts{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:30px}
+.contact{background:var(--bg);padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;min-width:0}
+.contact div{min-width:0}
+.contact small{display:block;font-family:var(--mono);font-size:11px;color:var(--steel);text-transform:uppercase;letter-spacing:.08em}
+.contact strong{display:block;font-weight:600;overflow-wrap:anywhere;user-select:all}
+.copy{background:transparent;border:1px solid var(--line);color:var(--fg);font-family:var(--mono);font-size:12px;padding:8px 12px;cursor:pointer;flex-shrink:0}
+.copy:hover{border-color:var(--steel)}
+.close img.portrait{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;margin-top:0}
+@media (max-width:860px){.close .grid{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);padding-block:56px 64px;text-align:center}
+footer p{font-family:var(--display);font-stretch:125%;letter-spacing:.6em;font-size:12px;color:var(--steel);line-height:2.6;text-transform:uppercase}
+footer p b{color:var(--fg);font-weight:800}
+
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:10px 16px;font-family:var(--mono);font-size:13px;z-index:20}
+
+@media (prefers-reduced-motion:no-preference){
+  .hero .brand,.hero .role,.hero .for{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+  .hero .role{animation-delay:.12s}.hero .for{animation-delay:.24s}
+  @keyframes rise{from{transform:translateY(14px)}to{transform:none}}
+  .pulse{animation:pulse 1.6s ease-in-out infinite}
+  @keyframes pulse{50%{opacity:.35}}
+}
+
+/* ===== CELULAR: layout mais dinâmico (desktop não muda) ===== */
+.swipe-hint{display:none}
+.hint-m{display:none}
+@media (max-width:860px){.hint-d{display:none}.hint-m{display:inline}}
+@media (max-width:860px){
+  section{padding-block:64px}
+  /* abertura em tela cheia, vídeo aparente e texto ancorado embaixo */
+  .hero{min-height:100svh;align-items:flex-end}
+  .hero::before{background:linear-gradient(0deg,var(--bg) 0%,#09090ae0 36%,#09090a40 66%,#09090a1a 100%)}
+  .hero .wrap{padding-block:0 36px}
+  .hero .for{margin-top:28px}
+  .hero .for p{font-size:15px}
+  .hero .ctas{flex-wrap:nowrap;gap:10px}
+  .hero .ctas .btn{flex:1;justify-content:center;padding:14px 10px;font-size:11.5px;letter-spacing:.1em}
+  .hero .role{letter-spacing:.32em;font-size:11px}
+
+  /* números: faixa de arrastar */
+  .proof .grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-left:0;padding-right:0}
+  .proof .grid::-webkit-scrollbar{display:none}
+  .proof .item,.proof .item+.item{flex:0 0 46%;scroll-snap-align:start;padding:24px 18px;border-right:1px solid var(--line);border-bottom:0}
+  .proof .item:first-child{padding-left:max(16px,env(safe-area-inset-left,0px))}
+  .proof .item:nth-child(3){padding-left:18px}
+
+  /* sobre: foto mais baixa pra encurtar a rolagem */
+  .about figure img{aspect-ratio:5/4;object-position:50% 18%}
+
+  /* gráfico cabe na tela (sem rolagem lateral) */
+  .curve{padding:16px 12px 6px;overflow:visible}
+  .curve svg{min-width:0}
+  .curve svg.mob text{font-size:30px}
+  .curve svg.mob text.tip{font-size:30px}
+  /* fases: cartões de arrastar */
+  .phases{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;background:transparent;border:0;margin-top:12px;scrollbar-width:none}
+  .phases::-webkit-scrollbar{display:none}
+  .phase{flex:0 0 58%;scroll-snap-align:start;border:1px solid var(--line)}
+
+  /* galeria: carrossel estilo stories */
+  .stages .mosaic{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;grid-auto-rows:auto;margin-right:calc(-1 * max(20px,env(safe-area-inset-right,0px)));padding-right:max(20px,env(safe-area-inset-right,0px));scrollbar-width:none}
+  .stages .mosaic::-webkit-scrollbar{display:none}
+  .stages .tile{flex:0 0 78%;aspect-ratio:4/5;scroll-snap-align:start;grid-column:auto;grid-row:auto}
+  .swipe-hint{display:flex;align-items:center;gap:10px;margin-top:14px;font-family:var(--mono);font-size:11px;color:var(--steel);letter-spacing:.06em;text-transform:uppercase}
+  .swipe-hint .bar{flex:1;height:2px;background:var(--line);position:relative;overflow:hidden}
+  .swipe-hint .bar i{position:absolute;inset:0 auto 0 0;width:20%;background:var(--red);transition:transform .2s}
+
+  /* ouça: blocos mais compactos */
+  .listen a{padding:20px 16px;gap:18px}
+
+  /* proposta: foto mais baixa */
+  .close img.portrait{aspect-ratio:4/3;object-position:50% 45%}
+
+  /* entrada suave das seções ao rolar (só depois do JS marcar) */
+  .rv{transition:transform .7s cubic-bezier(.2,.7,.2,1),opacity .7s}
+  .rv.out{transform:translateY(28px);opacity:.35}
+}
+@media (max-width:860px) and (prefers-reduced-motion:reduce){.rv.out{transform:none;opacity:1}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <video class="bg" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="img/hero-poster.jpg" aria-label="Pista lotada na D-EDGE durante set de MUZYK">
+    <source src="img/hero.mp4" type="video/mp4">
+  </video>
+  <div class="wrap">
+    <div>
+    <div class="brand">
+      <img class="logo" src="img/logo.png" alt="MUZ¥K">
+      <div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+    <div class="role">DJ e produtor musical · São Paulo</div>
+    <div class="for">
+      <div class="ticket" id="ticket" hidden></div>
+      <h1 id="forTitle">A trilha sonora que seu evento merece.</h1>
+      <p>Sets de House, Tech House e eletrônico comercial para confraternizações, lançamentos e convenções. A música acompanha cada momento do seu evento, da recepção ao último drop.</p>
+      <div class="ctas">
+        <a class="btn red" href="#proposta">Consultar data</a>
+        <a class="btn" href="#trilha">Montar a trilha</a>
+      </div>
+    </div>
+    </div>
+  </div>
+</header>
+
+<div class="proof">
+  <div class="wrap grid">
+    <div class="item"><b>500 mil</b><span>inscritos no canal Altamira, que ajudou a fundar</span></div>
+    <div class="item"><b>+320 mi</b><span>de visualizações em lançamentos musicais</span></div>
+    <div class="item"><b>Top 24</b><span>Hype Tech House no Beatport</span></div>
+    <div class="item"><b>D-EDGE</b><span>Apresentação no clube referência mundial, em abril de 2025</span></div>
+  </div>
+</div>
+
+<section class="about">
+  <div class="wrap grid">
+    <figure>
+      <img src="img/stand.jpg" alt="Retrato de MUZYK em fundo azul acinzentado" loading="lazy">
+      <figcaption>Igor Garcia · MUZYK</figcaption>
+    </figure>
+    <div class="text">
+      <div class="eyebrow">Sobre</div>
+      <h2>Música é o trabalho de uma vida.</h2>
+      <p class="lead">MUZYK é o projeto de Igor Garcia, multi-instrumentista e compositor que entrou em um estúdio profissional pela primeira vez aos 16 anos.</p>
+      <p>Começou com gravações, trilhas sonoras e trabalhos ao vivo ao lado do produtor e artista plástico Alexandre Prade. Depois ajudou a fundar a Altamira, canal de lançamentos que passou de 500 mil inscritos.</p>
+      <p>Hoje produz House, Tech House e Indie Dance com apoio de DJs da cena nacional e internacional. Une elementos orgânicos e sintéticos em um som de pista que conversa com públicos amplos, do clube underground ao salão de convenção.</p>
+      <div class="tags"><span>House</span><span>Tech House</span><span>Indie Dance</span><span>Eletrônico comercial</span><span>São Paulo</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="plan" id="trilha">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="eyebrow">Planeje comigo</div>
+        <h2>A noite em quatro atos</h2>
+      </div>
+      <p>A curva mostra como a energia da música sobe ao longo da noite, do warm-up ao closing.</p>
+    </div>
+
+
+    <div class="curve"><p class="hint"><span class="hint-d">Passe o mouse ou toque na curva para ver o horário e o BPM</span><span class="hint-m">Toque na curva para ver o horário e o BPM</span></p><svg id="svg" viewBox="0 0 1000 230" role="img" aria-label="Curva de energia da noite, de 110 BPM no warm-up até 130 BPM no pico"></svg></div>
+    <div class="phases" id="phases"></div>
+  </div>
+</section>
+
+
+<section class="stages">
+  <div class="wrap">
+    <div class="eyebrow">Palcos</div>
+    <h2>Do clube para o seu evento</h2>
+    <div class="mosaic">
+      <figure class="tile t1"><img src="img/crowd2.jpg" alt="Público dançando com as mãos para cima na D-EDGE" loading="lazy"><figcaption>D-EDGE · São Paulo</figcaption></figure>
+      <figure class="tile t2"><img style="object-position:50% 18%" src="img/dedge.jpg" alt="Arte de divulgação MUZYK na D-EDGE, Open House Mag Lounge, 12 de abril de 2025" loading="lazy"></figure>
+      <figure class="tile t3"><img src="img/g-cabine.jpg" alt="Vista da cabine de MUZYK para a pista com luzes roxas e lasers" loading="lazy" style="object-position:50% 40%"><figcaption>Visão da cabine</figcaption></figure>
+      <figure class="tile t4"><img style="object-position:50% 0%" src="img/g-white.jpg" alt="Cartaz da White Party Pistinha Summer com MUZYK" loading="lazy"><figcaption>Pistinha Summer · White Party</figcaption></figure>
+      <figure class="tile t5"><img src="img/g-pb.jpg" alt="MUZYK em preto e branco atrás da mesa Pioneer DJ" loading="lazy" style="object-position:50% 30%"><figcaption>Club set</figcaption></figure>
+      <figure class="tile t6"><img src="img/g-sunset.jpg" alt="Set ao pôr do sol com vista para as montanhas" loading="lazy"><figcaption>Sunset set</figcaption></figure>
+      <figure class="tile t7"><img src="img/g-roof.jpg" alt="MUZYK tocando ao ar livre com montanhas ao fundo" loading="lazy" style="object-position:50% 45%"><figcaption>Open air</figcaption></figure>
+    </div>
+    <div class="swipe-hint" aria-hidden="true"><span>Arraste</span><span class="bar"><i id="galBar"></i></span><span id="galCount">1/7</span></div>
+  </div>
+</section>
+
+<section class="listen" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow">Ouça antes de fechar</div>
+    <h2>O som do MUZYK</h2>
+    <div class="grid">
+      <a href="https://open.spotify.com/intl-pt/artist/3mtGEt5yu4YinqPOfMnRtg" target="_blank" rel="noopener"><span>Lançamentos</span><b>Spotify</b><i>Ouvir →</i></a>
+      <a href="https://soundcloud.com/muzykdj" target="_blank" rel="noopener"><span>Sets e edits</span><b>SoundCloud</b><i>Ouvir →</i></a>
+      <a href="https://www.youtube.com/@muzykdj" target="_blank" rel="noopener"><span>Set na D-EDGE</span><b>YouTube</b><i>Assistir →</i></a>
+      <a href="https://www.instagram.com/igormuzykdj/" target="_blank" rel="noopener"><span>11,6 mil seguidores</span><b>Instagram</b><i>Seguir →</i></a>
+    </div>
+  </div>
+</section>
+
+<section class="close plan" id="proposta">
+  <div class="wrap grid">
+    <div>
+      <div class="eyebrow">Sua proposta</div>
+      <div class="summary" style="margin-top:28px">
+        <p style="color:#cfcfcb;max-width:44ch">Me conte a data, o local e o número de convidados que eu monto a proposta do seu evento.</p>
+        <a class="btn red" id="wa" href="https://wa.me/5511974203254" target="_blank" rel="noopener">Enviar pelo WhatsApp</a>
+        <p class="note">Abre o WhatsApp com a mensagem pronta. Se não abrir, use os contatos ao lado.</p>
+      </div>
+      <div class="contacts">
+        <div class="contact"><div><small>WhatsApp</small><strong>(11) 9 7420-3254</strong></div><button class="copy" data-copy="+55 11 97420-3254">Copiar</button></div>
+        <div class="contact"><div><small>E-mail</small><strong>muzykdj@gmail.com</strong></div><button class="copy" data-copy="muzykdj@gmail.com">Copiar</button></div>
+      </div>
+    </div>
+    <img class="portrait" src="img/closing2.jpg" alt="MUZYK nas CDJs da D-EDGE cercado pela pista sob luz vermelha" loading="lazy">
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Now we are one<br>We are frequency<br><b>We are MUZYK</b></p>
+  </div>
+</footer>
+
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(function(){
+  const TYPES = {
+    confra:{label:"Confraternização de fim de ano", phases:[
+      {n:"Recepção",s:.2,b:[100,112],d:"Nu-disco e house suave enquanto os convidados chegam. Volume que deixa conversar."},
+      {n:"Jantar e brindes",s:.25,b:[105,118],d:"Clássicos repaginados em versões eletrônicas. Pausa para discursos e homenagens."},
+      {n:"Pista",s:.4,b:[122,128],d:"Tech House e hits que todo mundo canta. É o momento de abrir a pista."},
+      {n:"Saideira",s:.15,b:[118,110],d:"Faixas de encerramento com clima de celebração para fechar a noite em alta."}]},
+    lanc:{label:"Lançamento de produto", phases:[
+      {n:"Credenciamento",s:.2,b:[95,110],d:"Ambiente sonoro que apresenta a marca desde a porta. Deep house e downtempo."},
+      {n:"Revelação",s:.15,b:[110,124],d:"Trilha de impacto para o momento do anúncio, sincronizada com luz e telão."},
+      {n:"Networking",s:.35,b:[112,120],d:"House elegante para conversa e experimentação do produto."},
+      {n:"After",s:.3,b:[122,126],d:"Energia de clube para fechar a noite e gerar conteúdo nas redes."}]},
+    conv:{label:"Convenção ou premiação", phases:[
+      {n:"Abertura",s:.15,b:[100,115],d:"Clima de expectativa enquanto o público ocupa o salão."},
+      {n:"Premiação",s:.3,b:[110,124],d:"Trilhas curtas de entrada para cada premiado. Ritmo e emoção sem pausas."},
+      {n:"Celebração",s:.4,b:[122,128],d:"A pista vira palco dos vencedores. Tech House e pop eletrônico."},
+      {n:"Encerramento",s:.15,b:[120,112],d:"Saída em alto astral, com faixas que todo mundo reconhece."}]},
+    ativ:{label:"Festa ou ativação de marca", phases:[
+      {n:"Warm-up",s:.2,b:[110,120],d:"House com groove para encher o espaço aos poucos."},
+      {n:"Ativação",s:.25,b:[118,124],d:"Set pensado para a experiência da marca e para render bons vídeos."},
+      {n:"Peak time",s:.4,b:[124,130],d:"Tech House no pico, a mesma energia levada às pistas da D-EDGE."},
+      {n:"Closing",s:.15,b:[126,118],d:"Faixas marcantes para o encerramento e o último registro da noite."}]}
+  };
+  const EXTRAS = [
+    {id:"drop",t:"Vinheta da marca",d:"Um drop exclusivo produzido em estúdio com o nome ou slogan da empresa, tocado nos momentos-chave."},
+    {id:"entrada",t:"Trilhas de entrada",d:"Músicas de entrada para a liderança, premiados ou convidados especiais subirem ao palco."},
+    {id:"playlist",t:"Playlist pós-evento",d:"Uma playlist no Spotify com o melhor da noite para os convidados ouvirem depois."},
+    {id:"remix",t:"Remix do jingle",d:"Versão eletrônica do jingle ou da trilha institucional para tocar na pista."},
+    {id:"video",t:"Set gravado",d:"Captação do set em vídeo para o time de marketing usar nas redes."},
+    {id:"sunset",t:"Sunset ou rooftop",d:"Formato especial ao ar livre para eventos de fim de tarde."}
+  ];
+  const state={type:"ativ",start:20,dur:4,extras:new Set()};
+  const $=id=>document.getElementById(id);
+  const MQ=matchMedia("(max-width:860px)");
+
+  // Personalização pelo link: ...#nome-da-empresa
+  // Formato: #empresa--data--local  (ex.: #acme-brasil--12-dez--hotel-unique)
+  const MESES=["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
+  const ABR=["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
+  const title=s=>s.split("-").filter(Boolean).map(w=>w[0].toUpperCase()+w.slice(1)).join(" ");
+  function parseDate(s){
+    const t=(s||"").toLowerCase().split("-").filter(Boolean);if(t.length<2) return null;
+    const d=parseInt(t[0],10);let m=/^\d+$/.test(t[1])?parseInt(t[1],10)-1:ABR.indexOf(t[1].slice(0,3));
+    if(!(d>=1&&d<=31)||!(m>=0&&m<=11)) return null;
+    const now=new Date();now.setHours(0,0,0,0);
+    let y=t[2]?parseInt(t[2].length===2?"20"+t[2]:t[2],10):now.getFullYear();
+    let dt=new Date(y,m,d);if(!t[2]&&dt<now) dt=new Date(y+1,m,d);
+    return {label:d+" de "+MESES[m],days:Math.round((dt-now)/864e5)};
+  }
+  function personalize(){
+    const h=decodeURIComponent((location.hash||"").slice(1));
+    const reserved=["trilha","proposta",""];
+    if(reserved.includes(h)) return;
+    const [p0,p1,p2]=h.split("--");
+    const name=title(p0||"");
+    if(!name) return;
+    $("forTitle").textContent="A trilha sonora que o evento da "+name+" merece.";
+    state.company=name;
+    const dt=parseDate(p1);state.date=dt?dt.label:"";state.local=p2?title(p2):"";
+    const tk=$("ticket");tk.textContent="";
+    const add=(tag,txt,cls)=>{const e=document.createElement(tag);e.textContent=txt;if(cls)e.className=cls;tk.appendChild(e)};
+    add("b",name);
+    if(state.date) add("span","· "+state.date);
+    if(state.local) add("span","· "+state.local);
+    if(dt&&dt.days>=0) add("span",dt.days===0?"É hoje":dt.days===1?"É amanhã":"Faltam "+dt.days+" dias","count");
+    tk.hidden=false;
+  }
+
+  const types=document.createElement("div");
+  Object.entries(TYPES).forEach(([k,v])=>{
+    const b=document.createElement("button");b.className="chip";b.type="button";b.textContent=v.label;b.dataset.k=k;
+    b.addEventListener("click",()=>{state.type=k;render()});types.appendChild(b);
+  });
+  const st=document.createElement("select");
+  for(let h=12;h<=23;h++){const o=document.createElement("option");o.value=h;o.textContent="Início "+String(h).padStart(2,"0")+":00";if(h===20)o.selected=true;st.appendChild(o)}
+  st.addEventListener("change",()=>{state.start=+st.value;render()});
+  document.createElement("select").addEventListener("change",e=>{state.dur=+e.target.value;render()});
+
+  const ex=document.createElement("div");
+  EXTRAS.forEach(x=>{
+    const b=document.createElement("button");b.type="button";b.className="extra";b.setAttribute("aria-pressed","false");
+    b.innerHTML='<span class="tick" aria-hidden="true">✓</span><h3></h3><p></p>';
+    b.querySelector("h3").textContent=x.t;b.querySelector("p").textContent=x.d;
+    b.addEventListener("click",()=>{state.extras.has(x.id)?state.extras.delete(x.id):state.extras.add(x.id);render()});
+    b.dataset.id=x.id;ex.appendChild(b);
+  });
+
+  const fmt=m=>{m=((m%1440)+1440)%1440;return String(Math.floor(m/60)).padStart(2,"0")+":"+String(Math.round(m%60)).padStart(2,"0")};
+
+  function drawCurve(ph){
+    const mob=MQ.matches;const W=1000,H=mob?500:230,L=mob?92:44,R=16,T=mob?48:18,B=mob?72:34,minB=90,maxB=132;
+    const svgEl=$("svg");svgEl.setAttribute("viewBox",`0 0 ${W} ${H}`);svgEl.classList.toggle("mob",mob);const fy=mob?10:4,sw=mob?5:3;
+    const x=f=>L+f*(W-L-R), y=b=>T+(1-(b-minB)/(maxB-minB))*(H-T-B);
+    let s="";
+    [100,110,120,130].forEach(b=>{s+=`<line x1="${L}" x2="${W-R}" y1="${y(b)}" y2="${y(b)}" stroke="#26282c" stroke-width="1"/><text x="${L-8}" y="${y(b)+fy}" text-anchor="end">${b}</text>`});
+    s+=`<text x="${L-8}" y="${T-4}" text-anchor="end">BPM</text>`;
+    let acc=0,pts=[];
+    ph.forEach((p,i)=>{const a=acc,bnd=acc+p.s;
+      pts.push([x(a),y(p.b[0])],[x(a+p.s*.55),y((p.b[0]+p.b[1])/2+ (p.b[1]>p.b[0]?1:-1))],[x(bnd),y(p.b[1])]);
+      if(i>0) s+=`<line x1="${x(a)}" x2="${x(a)}" y1="${T}" y2="${H-B}" stroke="#3a3d42" stroke-dasharray="3 4"/>`;
+      s+=`<text x="${x(a)+8}" y="${H-(mob?22:12)}">${p.n.toUpperCase()}</text>`;
+      acc=bnd;});
+    let d="M"+pts[0].join(",");
+    for(let i=1;i<pts.length;i++){const [px,py]=pts[i-1],[cx,cy]=pts[i];const mx=(px+cx)/2;d+=` C${mx},${py} ${mx},${cy} ${cx},${cy}`}
+    const area=d+` L${x(1)},${H-B} L${x(0)},${H-B} Z`;
+    s+=`<defs><linearGradient id="g" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#e3261d" stop-opacity=".45"/><stop offset="1" stop-color="#e3261d" stop-opacity="0"/></linearGradient></defs>`;
+    s+=`<path d="${area}" fill="url(#g)"/><path id="line" d="${d}" fill="none" stroke="#e3261d" stroke-width="${sw}" stroke-linecap="round"/>`;
+    // pico
+    let peak=pts.reduce((a,b)=>b[1]<a[1]?b:a);
+    s+=`<g id="peak"><circle cx="${peak[0]}" cy="${peak[1]}" r="${mob?11:6}" fill="#f1f0ec"/><text x="${peak[0]}" y="${peak[1]-(mob?26:14)}" text-anchor="middle" style="fill:#f1f0ec">PICO</text></g>`;
+    // cursor interativo
+    s+=`<g id="cur" style="display:none;pointer-events:none"><line id="curL" y1="${T}" y2="${H-B}" stroke="#f1f0ec" stroke-opacity=".5" stroke-width="1"/><circle id="curC" r="${mob?12:6}" fill="#e3261d" stroke="#fff" stroke-width="2"/><rect id="curR" height="${mob?54:26}" rx="2" fill="#e3261d"/><text id="curT" class="tip" text-anchor="middle"></text></g>`;
+    s+=`<rect id="hit" x="${L}" y="0" width="${W-L-R}" height="${H}" fill="transparent"/>`;
+    $("svg").innerHTML=s;
+    // amostras da curva para leitura rápida
+    const P=$("line"),len=P.getTotalLength();samples=[];
+    for(let i=0;i<=len;i+=2){const q=P.getPointAtLength(i);samples.push([q.x,q.y])}
+    geo={L,R,W,T,B,H,minB,maxB,mob};
+  }
+  let samples=[],geo=null,sweeping=false;
+  function showCursor(ev){
+    if(!geo||!samples.length) return;
+    const svg=$("svg"),ctm=svg.getScreenCTM();if(!ctm) return;
+    const pt=new DOMPoint(ev.clientX,ev.clientY).matrixTransform(ctm.inverse());
+    sweeping=false;drawCursorAt(pt.x);
+  }
+  function drawCursorAt(px){
+    const {L,R,W,T,B,H,minB,maxB,mob}=geo;
+    const xv=Math.max(L,Math.min(W-R,px));
+    let best=samples[0];for(const s of samples){if(Math.abs(s[0]-xv)<Math.abs(best[0]-xv))best=s}
+    const bpm=Math.round(minB+(1-(best[1]-T)/(H-T-B))*(maxB-minB));
+    const f=(best[0]-L)/(W-L-R),mins=state.start*60+f*state.dur*60;
+    const label=fmt(Math.round(mins/5)*5)+" · "+bpm+" BPM";
+    const tw=label.length*(mob?17:7.4)+(mob?36:18);let tx=Math.max(L+tw/2,Math.min(W-R-tw/2,best[0]));const ty=Math.max(2,best[1]-(mob?92:44));
+    $("cur").style.display="";$("peak").style.opacity=".25";
+    $("curL").setAttribute("x1",best[0]);$("curL").setAttribute("x2",best[0]);
+    $("curC").setAttribute("cx",best[0]);$("curC").setAttribute("cy",best[1]);
+    $("curR").setAttribute("x",tx-tw/2);$("curR").setAttribute("y",ty);$("curR").setAttribute("width",tw);
+    $("curT").setAttribute("x",tx);$("curT").setAttribute("y",ty+(mob?38:17));$("curT").textContent=label;
+  }
+  function hideCursor(){const c=$("cur");if(c){c.style.display="none";$("peak").style.opacity=""}}
+  $("svg").addEventListener("pointermove",showCursor);
+  $("svg").addEventListener("pointerdown",showCursor);
+  $("svg").addEventListener("pointerleave",hideCursor);
+
+  function render(){
+    const T=TYPES[state.type];
+    types.querySelectorAll(".chip").forEach(b=>b.setAttribute("aria-pressed",b.dataset.k===state.type));
+    drawCurve(T.phases);
+    const total=state.dur*60;let m=state.start*60;
+    $("phases").innerHTML="";
+    T.phases.forEach(p=>{
+      const len=Math.round(p.s*total/15)*15;const el=document.createElement("div");el.className="phase";
+      el.innerHTML=`<div class="t">${fmt(m)} – ${fmt(m+len)}</div><h3></h3><div class="bpm">${Math.min(...p.b)}–${Math.max(...p.b)} BPM</div>`;
+      el.querySelector("h3").textContent=p.n;$("phases").appendChild(el);m+=len;
+    });
+    ex.querySelectorAll(".extra").forEach(b=>b.setAttribute("aria-pressed",state.extras.has(b.dataset.id)));
+    const exNames=EXTRAS.filter(x=>state.extras.has(x.id)).map(x=>x.t);
+    const time=`${fmt(state.start*60)} às ${fmt(state.start*60+total)} (${state.dur}h de set)`;
+    
+    const msg=`Olá, MUZYK! Vi a proposta e quero consultar uma data.\n\n`+(state.company?`Empresa: ${state.company}\n`:"")+`Data do evento: ${state.date||""}\nLocal: ${state.local||""}\nNúmero de convidados: `;
+    $("wa").href="https://wa.me/5511974203254?text="+encodeURIComponent(msg);
+  }
+
+  document.querySelectorAll(".copy").forEach(b=>b.addEventListener("click",()=>{
+    const v=b.dataset.copy;const done=()=>toast("Copiado: "+v);
+    try{navigator.clipboard.writeText(v).then(done,()=>toast(v))}catch(e){toast(v)}
+  }));
+  let tt;function toast(t){const el=$("toast");el.textContent=t;el.hidden=false;clearTimeout(tt);tt=setTimeout(()=>el.hidden=true,2200)}
+
+  // vídeo: respeita quem prefere menos movimento e garante o play no mobile
+  const vid=$("heroVideo");
+  try{if(matchMedia("(prefers-reduced-motion: reduce)").matches){vid.removeAttribute("autoplay");vid.pause()}else{const p=vid.play();if(p&&p.catch)p.catch(()=>{})}}catch(e){}
+
+  personalize();window.addEventListener("hashchange",()=>{personalize();render()});
+  render();
+  MQ.addEventListener&&MQ.addEventListener("change",()=>{hideCursor();render()});
+
+  // ===== só no celular =====
+  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(MQ.matches&&"IntersectionObserver" in window){
+    // números contando
+    const counters=[...document.querySelectorAll(".proof b")].map(el=>{const m=el.textContent.match(/^(\D*)(\d+)(.*)$/);return m?{el,pre:m[1],n:+m[2],post:m[3],done:false}:null}).filter(Boolean);
+    const countIO=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const c=counters.find(c=>c.el===e.target);if(!c||c.done)return;c.done=true;if(reduce)return;
+      const t0=performance.now(),d=1100;const step=t=>{const k=Math.min(1,(t-t0)/d),v=Math.round(c.n*(1-Math.pow(1-k,3)));c.el.textContent=c.pre+v+c.post;if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)}),{threshold:.6});
+    counters.forEach(c=>countIO.observe(c.el));
+    // seções entrando ao rolar
+    if(!reduce){const rvIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.remove("out");rvIO.unobserve(e.target)}}),{threshold:.12});
+      document.querySelectorAll("section .wrap > *, .phases, .stages .mosaic").forEach(el=>{const r=el.getBoundingClientRect();if(r.top>innerHeight){el.classList.add("rv","out");rvIO.observe(el)}});}
+    // gráfico: cursor percorre a curva sozinho uma vez
+    const sweepIO=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting||!geo)return;sweepIO.disconnect();if(reduce)return;
+      sweeping=true;const t0=performance.now(),d=3200;const {L,R,W}=geo;
+      const step=t=>{if(!sweeping)return;const k=Math.min(1,(t-t0)/d);drawCursorAt(L+k*(W-L-R));if(k<1)requestAnimationFrame(step);else setTimeout(()=>{if(sweeping){hideCursor();sweeping=false}},900)};requestAnimationFrame(step)}),{threshold:.6});
+    sweepIO.observe($("svg"));
+    // galeria: barra de progresso
+    const mo=document.querySelector(".stages .mosaic"),bar=$("galBar"),cnt=$("galCount"),tiles=mo.querySelectorAll(".tile");
+    const upd=()=>{const max=mo.scrollWidth-mo.clientWidth;const k=max>0?mo.scrollLeft/max:0;bar.style.width=(100/tiles.length)+"%";bar.style.transform=`translateX(${k*(tiles.length-1)*100}%)`;cnt.textContent=(Math.round(k*(tiles.length-1))+1)+"/"+tiles.length};
+    mo.addEventListener("scroll",upd,{passive:true});upd();
+  }
+})();
+</script>
+
+</body>
+</html>
