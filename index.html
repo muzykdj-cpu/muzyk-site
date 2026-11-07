@@ -536,7 +536,7 @@ footer p b{color:var(--fg);font-weight:800}
     const exNames=EXTRAS.filter(x=>state.extras.has(x.id)).map(x=>x.t);
     const time=`${fmt(state.start*60)} às ${fmt(state.start*60+total)} (${state.dur}h de set)`;
     
-    const msg=`Olá, MUZYK! Vi a proposta e quero consultar uma data.\n\n`+(state.company?`Empresa: ${state.company}\n`:"")+`Data do evento: ${state.date||""}\nLocal: ${state.local||""}\nNúmero de convidados: `;
+    const msg=`Olá Muzyk, vi seu site e gostaria de um orçamento.\n\n`+(state.company?`Empresa: ${state.company}\n`:"")+`Data do evento: ${state.date||""}\nLocal: ${state.local||""}\nNúmero de convidados: `;
     $("wa").href="https://wa.me/5511974203254?text="+encodeURIComponent(msg);
   }
 
