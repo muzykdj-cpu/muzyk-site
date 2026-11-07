@@ -196,6 +196,8 @@ footer p b{color:var(--fg);font-weight:800}
 
 /* ===== CELULAR: layout mais dinâmico (desktop não muda) ===== */
 .swipe-hint{display:none}
+.nw{white-space:nowrap}
+.proof b{white-space:nowrap}
 .hint-m{display:none}
 @media (max-width:860px){.hint-d{display:none}.hint-m{display:inline}}
 @media (max-width:860px){
@@ -212,7 +214,7 @@ footer p b{color:var(--fg);font-weight:800}
 
   /* números: os quatro visíveis em 2x2 */
   .proof .item{padding-block:22px}
-  .proof b{font-size:clamp(24px,7.5vw,32px)}
+  .proof b{font-size:clamp(18px,5.6vw,26px)}
 
   /* sobre: foto mais baixa pra encurtar a rolagem */
   .about figure img{aspect-ratio:5/4;object-position:50% 18%}
@@ -261,7 +263,7 @@ footer p b{color:var(--fg);font-weight:800}
       <img class="logo" src="img/logo.png" alt="MUZ¥K">
       <div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
     </div>
-    <div class="role">DJ e produtor musical · São Paulo</div>
+    <div class="role">DJ e produtor musical <span class="nw">· São Paulo</span></div>
     <div class="for">
       <div class="ticket" id="ticket" hidden></div>
       <h1 id="forTitle">A trilha sonora que seu evento merece.</h1>
