@@ -410,6 +410,12 @@ footer p b{color:var(--fg);font-weight:800}
   const state={type:"ativ",start:20,dur:4,extras:new Set()};
   const $=id=>document.getElementById(id);
   const MQ=matchMedia("(max-width:860px)");
+  // sempre abrir no topo: ignora a posição de rolagem salva e âncoras como #proposta no link
+  try{if("scrollRestoration" in history)history.scrollRestoration="manual"}catch(e){}
+  const anchorHash=["#proposta","#trilha"];
+  if(anchorHash.includes(location.hash)){try{history.replaceState(null,"",location.pathname+location.search)}catch(e){}}
+  const toTop=()=>{if(!anchorHash.includes(location.hash))window.scrollTo(0,0)};
+  toTop();addEventListener("load",toTop);addEventListener("pageshow",e=>{if(e.persisted)toTop()});
 
   // Personalização pelo link: ...#nome-da-empresa
   // Formato: #empresa--data--local  (ex.: #acme-brasil--12-dez--hotel-unique)
