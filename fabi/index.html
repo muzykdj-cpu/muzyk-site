@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#09090a">
+<meta name="robots" content="noindex, nofollow">
+<title>MUZYK · Proposta para Fabi · Inauguração da loja</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#09090a; --panel:#121214; --line:#26262b; --text:#f2f2f3; --muted:#9a9aa3;
+    --accent:#a855f7; --accent2:#ef4444; --glow:rgba(168,85,247,.35);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px}
+  h1,h2,h3,.logo,.num{font-family:"Space Grotesk",sans-serif}
+
+  /* HERO */
+  .hero{position:relative;overflow:hidden;padding:64px 0 56px;border-bottom:1px solid var(--line)}
+  .hero::before{content:"";position:absolute;inset:-40% -20% auto -20%;height:520px;
+    background:radial-gradient(closest-side,var(--glow),transparent 70%),
+               radial-gradient(closest-side at 80% 60%,rgba(239,68,68,.22),transparent 70%);
+    filter:blur(20px);animation:pulse 8s ease-in-out infinite alternate;pointer-events:none}
+  .lasers{position:absolute;inset:0;pointer-events:none;opacity:.35}
+  .lasers span{position:absolute;top:-10%;left:50%;width:1px;height:140%;background:linear-gradient(transparent,var(--accent),transparent);transform-origin:top center}
+  @keyframes pulse{from{transform:scale(1);opacity:.8}to{transform:scale(1.15);opacity:1}}
+  @keyframes sweep{0%{transform:rotate(-28deg)}50%{transform:rotate(28deg)}100%{transform:rotate(-28deg)}}
+  .hero .wrap{position:relative}
+  .logo{font-weight:700;letter-spacing:.18em;font-size:15px;color:var(--muted)}
+  .logo b{color:var(--text)}
+  .tag{display:inline-block;margin-top:28px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(168,85,247,.4);padding:6px 12px;border-radius:999px}
+  h1{font-size:clamp(34px,8vw,58px);line-height:1.02;margin:18px 0 16px;font-weight:700;letter-spacing:-.02em}
+  h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{color:var(--muted);font-size:17px;max-width:540px}
+
+  /* FACTS */
+  .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:34px}
+  .fact{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;padding:14px}
+  .fact small{display:block;color:var(--muted);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+  .fact strong{font-family:"Space Grotesk";font-size:18px}
+
+  section{padding:56px 0;border-bottom:1px solid var(--line)}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+  h2{font-size:clamp(26px,5.5vw,36px);line-height:1.1;letter-spacing:-.01em;margin-bottom:14px}
+  p.sub{color:var(--muted);max-width:560px}
+
+  /* STATS */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:26px}
+  .stat{border-left:2px solid var(--accent);padding:4px 0 4px 12px}
+  .stat .num{font-size:22px;font-weight:700}
+  .stat span{font-size:12px;color:var(--muted)}
+
+  /* CURVE */
+  .curve{margin-top:26px;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px 16px 12px;position:relative}
+  .curve svg{width:100%;height:auto;display:block;touch-action:none}
+  .tip{position:absolute;top:14px;right:16px;text-align:right;font-size:13px;color:var(--muted)}
+  .tip b{display:block;font-family:"Space Grotesk";font-size:18px;color:var(--text)}
+  .phases{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+  .phase{background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:12px;padding:12px}
+  .phase h3{font-size:14px;margin-bottom:4px}
+  .phase .t{font-size:11px;color:var(--accent);letter-spacing:.1em}
+  .phase p{font-size:13px;color:var(--muted)}
+
+  /* INCLUDED */
+  .list{list-style:none;margin-top:22px;display:grid;gap:10px}
+  .list li{display:flex;gap:12px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+  .ic{flex:0 0 28px;height:28px;border-radius:8px;display:grid;place-items:center;background:rgba(168,85,247,.15);color:var(--accent);font-weight:700}
+  .list b{display:block}
+  .list span{color:var(--muted);font-size:14px}
+
+  /* PRICE */
+  .price{margin-top:24px;border-radius:22px;padding:28px 24px;position:relative;overflow:hidden;
+    background:linear-gradient(135deg,rgba(168,85,247,.18),rgba(239,68,68,.12));border:1px solid rgba(168,85,247,.45)}
+  .price small{color:var(--muted);letter-spacing:.14em;text-transform:uppercase;font-size:12px}
+  .price .big{font-family:"Space Grotesk";font-size:clamp(46px,12vw,72px);font-weight:700;letter-spacing:-.03em;line-height:1;margin:8px 0 6px}
+  .price .big sup{font-size:.35em;vertical-align:top;margin-right:6px;color:var(--muted)}
+  .price p{color:var(--muted);font-size:14px}
+  .terms{margin-top:18px;display:grid;gap:8px;font-size:14px}
+  .terms div{display:flex;justify-content:space-between;gap:12px;border-top:1px dashed rgba(255,255,255,.12);padding-top:8px}
+  .terms div span:first-child{color:var(--muted)}
+
+  /* CTA */
+  .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:999px;font-weight:600;text-decoration:none;font-size:15px;border:1px solid var(--line);color:var(--text);background:transparent;cursor:pointer;font-family:inherit}
+  .btn.main{background:var(--text);color:#09090a;border-color:var(--text)}
+  .contact{margin-top:14px;color:var(--muted);font-size:14px}
+
+  footer{padding:56px 0 70px;text-align:center}
+  footer .sign{font-family:"Space Grotesk";font-size:22px;line-height:1.35;color:var(--muted)}
+  footer .sign b{color:var(--text)}
+  footer small{display:block;margin-top:22px;color:#5d5d66;font-size:12px}
+
+  /* MEDIA */
+  .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .hero-shade{position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(9,9,10,.55) 0%,rgba(9,9,10,.7) 55%,#09090a 100%)}
+  .hero .lasers,.hero .wrap{z-index:1}
+  .logo img{height:34px;width:auto;display:block}
+  .about{display:grid;grid-template-columns:1fr 1.2fr;gap:22px;align-items:center}
+  .about figure{border-radius:18px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/5}
+  .about img{width:100%;height:100%;object-fit:cover;display:block}
+  .gallery{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:24px;padding-bottom:10px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .gallery::-webkit-scrollbar{display:none}
+  .gallery figure{flex:0 0 78%;max-width:420px;scroll-snap-align:start;position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/5}
+  .gallery img{width:100%;height:100%;object-fit:cover;display:block}
+  .gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:30px 14px 12px;font-size:13px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.8))}
+  .count{margin-top:6px;font-size:12px;color:var(--muted);letter-spacing:.1em}
+  .closing{position:relative;min-height:440px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+  .closing>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .closing::after{content:"";position:absolute;inset:0;background:linear-gradient(#09090a 0%,rgba(9,9,10,.35) 35%,rgba(9,9,10,.85) 100%)}
+  .closing .wrap{position:relative;z-index:1}
+
+  @media (max-width:560px){
+    .about{grid-template-columns:1fr}
+    .about figure{aspect-ratio:1/1}
+    .facts{grid-template-columns:1fr 1fr}
+    .facts .fact:last-child{grid-column:span 2}
+    .stats{grid-template-columns:1fr 1fr;row-gap:18px}
+    .phases{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <video class="hero-video" autoplay muted loop playsinline poster="/img/hero-poster.jpg" aria-label="Pista lotada na D-EDGE durante set de MUZYK">
+    <source src="/img/hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-shade" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="logo"><img src="/img/logo.png" alt="MUZ¥K"></div>
+    <span class="tag">Proposta exclusiva · Fabi</span>
+    <h1>A trilha sonora da <em>inauguração</em> da sua loja.</h1>
+    <p class="lead">Fabi, obrigado pelo contato. Preparei esta proposta para fazer da abertura da sua loja um momento muito especial. Obrigado por me incluir nele!</p>
+    <div class="facts">
+      <div class="fact"><small>Data</small><strong>Sáb · 14/11</strong></div>
+      <div class="fact"><small>Horário</small><strong>10h – 14h</strong></div>
+      <div class="fact"><small>Formato</small><strong>Set de 4h</strong></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap">
+      <div class="about">
+        <figure><img src="/img/stand.jpg" alt="Retrato de MUZYK em fundo azul acinzentado"></figure>
+        <div>
+          <div class="eyebrow">Quem toca</div>
+          <h2>MUZYK — House, Tech House, eletrônico comercial e open format.</h2>
+          <p class="sub">Sets pensados para o público e o momento: do clima de boas-vindas ao pico da festa, sem perder a identidade da marca.</p>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="num">500 mil</div><span>inscritos</span></div>
+        <div class="stat"><div class="num">+320 mi</div><span>views</span></div>
+        <div class="stat"><div class="num">Top 24</div><span>Beatport</span></div>
+        <div class="stat"><div class="num">D-EDGE</div><span>já se apresentou</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="gallery" id="gallery" style="margin-top:0">
+        <figure><img src="/img/crowd2.jpg" alt="Público dançando com as mãos para cima na D-EDGE" loading="lazy"></figure>
+        <figure><img src="/img/g-cabine.jpg" alt="Vista da cabine para a pista com luzes roxas e lasers" loading="lazy" style="object-position:50% 40%"></figure>
+        <figure><img src="/img/g-white.jpg" alt="Cartaz da White Party Pistinha Summer com MUZYK" loading="lazy"></figure>
+        <figure><img src="/img/g-pb.jpg" alt="MUZYK em preto e branco atrás da mesa Pioneer DJ" loading="lazy" style="object-position:50% 30%"></figure>
+        <figure><img src="/img/g-sunset.jpg" alt="Set ao pôr do sol com vista para as montanhas" loading="lazy"></figure>
+        <figure><img src="/img/g-roof.jpg" alt="MUZYK tocando ao ar livre com montanhas ao fundo" loading="lazy" style="object-position:50% 45%"></figure>
+      </div>
+      <div class="count" id="count">ARRASTE · 1/6</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">Planeje comigo</div>
+      <h2>A energia da manhã, minuto a minuto.</h2>
+      <p class="sub">Toque ou passe o dedo na curva para ver o clima e o BPM de cada momento da inauguração.</p>
+      <div class="curve">
+        <div class="tip" id="tip"><b id="tipTime">10:00</b><span id="tipText">Portas abertas · 112 BPM</span></div>
+        <svg id="svg" viewBox="0 0 600 220" aria-label="Curva de energia das 10h às 14h">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0" stop-color="#a855f7"/><stop offset="1" stop-color="#ef4444"/>
+            </linearGradient>
+            <linearGradient id="fill" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0" stop-color="#a855f7" stop-opacity=".35"/><stop offset="1" stop-color="#a855f7" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <g stroke="#26262b" stroke-width="1">
+            <line x1="20" y1="190" x2="580" y2="190"/>
+            <line x1="160" y1="40" x2="160" y2="190" stroke-dasharray="3 5"/>
+            <line x1="300" y1="40" x2="300" y2="190" stroke-dasharray="3 5"/>
+            <line x1="440" y1="40" x2="440" y2="190" stroke-dasharray="3 5"/>
+          </g>
+          <g fill="#9a9aa3" font-size="12" font-family="Inter">
+            <text x="20" y="210">10h</text><text x="150" y="210">11h</text><text x="290" y="210">12h</text><text x="430" y="210">13h</text><text x="556" y="210">14h</text>
+          </g>
+          <path id="area" fill="url(#fill)"/>
+          <path id="line" fill="none" stroke="url(#g)" stroke-width="3" stroke-linecap="round"/>
+          <line id="cursor" y1="40" y2="190" stroke="#f2f2f3" stroke-opacity=".35"/>
+          <circle id="dot" r="6" fill="#f2f2f3"/>
+        </svg>
+      </div>
+      <div class="phases">
+        <div class="phase"><div class="t">10H – 11H</div><h3>Boas-vindas</h3><p>Deep e Nu House em volume ambiente — convida quem passa a entrar e circular.</p></div>
+        <div class="phase"><div class="t">11H – 13H</div><h3>Loja cheia</h3><p>House com vocais e grooves conhecidos. Energia sobe junto com o movimento.</p></div>
+        <div class="phase"><div class="t">13H – 14H</div><h3>Pico e fechamento</h3><p>Tech House e eletrônico comercial para o momento mais cheio — e um final marcante.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">O que está incluso</div>
+      <h2>Você só se preocupa com os clientes.</h2>
+      <ul class="list">
+        <li><div class="ic">♪</div><div><b>Set de 4 horas</b><span>Das 10h às 14h, curadoria pensada para inauguração de loja.</span></div></li>
+        <li><div class="ic">◎</div><div><b>Equipamento de DJ</b><span>Controladora/CDJs e mixer, levados e montados por mim.</span></div></li>
+        <li><div class="ic">▣</div><div><b>Som (caixas)</b><span>Sistema de som dimensionado para o espaço da loja.</span></div></li>
+        <li><div class="ic">✓</div><div><b>Montagem e passagem de som</b><span>Chego antes das 10h para tudo estar pronto na abertura das portas.</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="proposta">
+    <div class="wrap">
+      <div class="eyebrow">Investimento</div>
+      <h2>Sua proposta.</h2>
+      <div class="price">
+        <small>Valor total</small>
+        <div class="big"><sup>R$</sup>650</div>
+        <p>DJ + equipamento + som · 4 horas de set</p>
+        <div class="terms">
+          <div><span>Evento</span><span>Inauguração da loja</span></div>
+          <div><span>Data</span><span>Sábado, 14/11/2026</span></div>
+          <div><span>Horário</span><span>10h às 14h</span></div>
+          <div><span>Pagamento</span><span>50% na confirmação · 50% no dia</span></div>
+        </div>
+      </div>
+      <div class="cta">
+        <a class="btn main" href="https://wa.me/5511974203254?text=Oi%20Igor!%20Quero%20confirmar%20o%20MUZYK%20na%20inaugura%C3%A7%C3%A3o%20da%20minha%20loja%20no%20s%C3%A1bado%2014%2F11%2C%2010h%20%C3%A0s%2014h." target="_blank" rel="noopener">Confirmar pelo WhatsApp →</a>
+        <button class="btn" id="copy">Copiar telefone</button>
+      </div>
+      <p class="contact">WhatsApp (11) 9 7420-3254 · muzykdj@gmail.com · @igormuzykdj</p>
+      <p class="contact">Como a data é neste sábado, a agenda fica reservada mediante confirmação até sexta (13/11).</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="sign">Now we are one<br>We are frequency<br><b>We are MUZYK</b></div>
+    <small>MUZ¥K · Proposta preparada para Fabi</small>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // energy (0-1) and BPM by minute offset from 10:00
+  const pts=[[0,.18,112],[30,.26,114],[60,.38,118],[90,.5,120],[120,.6,122],[150,.7,124],[180,.8,125],[210,.95,127],[230,1,128],[240,.72,124]];
+  const X=m=>20+m/240*560, Y=e=>190-e*150;
+  const msg=m=>m<60?"Boas-vindas":m<180?"Loja cheia":m<230?"Pico da festa":"Fechamento";
+  let d="";
+  pts.forEach((p,i)=>{ if(!i){d+=`M${X(p[0])},${Y(p[1])}`;return}
+    const q=pts[i-1], cx=(X(q[0])+X(p[0]))/2; d+=` C${cx},${Y(q[1])} ${cx},${Y(p[1])} ${X(p[0])},${Y(p[1])}`; });
+  document.getElementById('line').setAttribute('d',d);
+  document.getElementById('area').setAttribute('d',d+` L580,190 L20,190 Z`);
+  const svg=document.getElementById('svg'),dot=document.getElementById('dot'),cur=document.getElementById('cursor');
+  function at(m){ for(let i=1;i<pts.length;i++){ if(m<=pts[i][0]){const a=pts[i-1],b=pts[i],t=(m-a[0])/(b[0]-a[0]),s=t*t*(3-2*t);return [a[1]+(b[1]-a[1])*s, Math.round(a[2]+(b[2]-a[2])*t)];}} return [pts.at(-1)[1],pts.at(-1)[2]]; }
+  function set(m){ m=Math.max(0,Math.min(240,m)); const [e,b]=at(m);
+    dot.setAttribute('cx',X(m));dot.setAttribute('cy',Y(e));cur.setAttribute('x1',X(m));cur.setAttribute('x2',X(m));
+    const h=10+Math.floor(m/60), mm=String(Math.round(m%60)).padStart(2,'0');
+    document.getElementById('tipTime').textContent=`${h}:${mm==='60'?'00':mm}`;
+    document.getElementById('tipText').textContent=`${msg(m)} · ${b} BPM`; }
+  function move(ev){ const r=svg.getBoundingClientRect(); const x=(ev.touches?ev.touches[0].clientX:ev.clientX)-r.left; set(((x/r.width*600)-20)/560*240); }
+  svg.addEventListener('pointermove',move); svg.addEventListener('pointerdown',move);
+  svg.addEventListener('touchmove',e=>{move(e);},{passive:true});
+  set(0);
+  const gal=document.getElementById('gallery'),cnt=document.getElementById('count');
+  // autoplay: avança a cada 3s, volta ao início no fim, pausa quando a pessoa mexe
+  let pausedUntil=0;
+  const pause=()=>{pausedUntil=Date.now()+6000;};
+  ['pointerdown','touchstart','wheel'].forEach(ev=>gal.addEventListener(ev,pause,{passive:true}));
+  setInterval(()=>{
+    if(Date.now()<pausedUntil||document.hidden)return;
+    const f=gal.querySelector('figure');const w=f.offsetWidth+12;
+    const atEnd=gal.scrollLeft+gal.clientWidth>=gal.scrollWidth-4;
+    gal.scrollTo({left:atEnd?0:gal.scrollLeft+w,behavior:'smooth'});
+  },3000);
+  gal.addEventListener('scroll',()=>{const f=gal.querySelector('figure');const w=f.offsetWidth+12;cnt.textContent='ARRASTE · '+(Math.min(6,Math.round(gal.scrollLeft/w)+1))+'/6';},{passive:true});
+  document.getElementById('copy').addEventListener('click',async e=>{
+    try{await navigator.clipboard.writeText('+55 11 97420-3254');e.target.textContent='Copiado ✓';}
+    catch(_){e.target.textContent='(11) 9 7420-3254';}
+  });
+})();
+</script>
+</body>
+</html>
