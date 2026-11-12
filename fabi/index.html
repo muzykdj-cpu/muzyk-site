@@ -8,7 +8,7 @@
 <title>MUZYK · Proposta para Fabi · Inauguração da loja</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#09090a; --panel:#121214; --line:#26262b; --text:#f2f2f3; --muted:#9a9aa3;
@@ -123,6 +123,53 @@
     .phases{grid-template-columns:1fr}
   }
   @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+
+  /* ===== Igual ao site MUZYK ===== */
+  :root{--bg:#09090a;--panel:#131416;--line:#26282c;--text:#f1f0ec;--muted:#9a9ca1;--accent:#e3261d;--accent2:#e3261d;--glow:rgba(227,38,29,.28);--steel:#8e9cb0;
+        --display:"Archivo",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace}
+  body{font-family:var(--display);font-size:16px}
+  .wrap{max-width:1180px;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+  h1,h2,h3,.fact strong,.price .big,.phase h3,.list b,.proof b{font-family:var(--display);font-stretch:125%}
+  h1{font-weight:900;text-transform:uppercase;font-size:clamp(28px,4.2vw,52px);line-height:1.04;letter-spacing:-.005em;max-width:18ch}
+  h1 em{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--accent)}
+  h2{font-weight:900;text-transform:uppercase;font-size:clamp(28px,4.4vw,48px);line-height:1.02;letter-spacing:-.01em}
+  .lead{color:#c9c9c6;max-width:46ch}
+  p.sub{color:#cfcfcb;max-width:60ch}
+  .eyebrow{font-family:var(--display);font-stretch:125%;font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:var(--steel);margin:0 0 18px;display:flex;align-items:center;gap:12px}
+  .eyebrow::before{content:"";width:28px;height:2px;background:var(--red,#e3261d)}
+  .tag,.fact small,.count,.phase .t,.price small,.terms,.contact,.tip span,footer small{font-family:var(--mono)}
+  .tag{border-radius:0;border-color:var(--accent);color:#fff;background:var(--accent);letter-spacing:.06em;font-size:12px;padding:8px 12px}
+  .logo img{height:44px}
+  .fact,.curve,.phase,.list li,.price,.gallery figure,.about figure,.ic{border-radius:0}
+  .fact strong{font-weight:800}
+  .about{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:64px}
+  .about figure{border:0}
+  .ic{background:rgba(227,38,29,.14);color:var(--accent)}
+  .price{background:linear-gradient(135deg,rgba(227,38,29,.16),rgba(227,38,29,.04));border-color:rgba(227,38,29,.5)}
+  .price .big{font-weight:900}
+  .btn{border-radius:0;font-family:var(--display);font-stretch:125%;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding:15px 22px;border-color:var(--text)}
+  .btn.main{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn.main:hover{background:#fff;border-color:#fff;color:var(--bg)}
+  footer .sign{font-family:var(--display);font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:clamp(18px,2.4vw,26px)}
+  .tip b{font-family:var(--display);font-stretch:125%;font-weight:900}
+  /* barra de números igual ao site */
+  .proof{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .proof .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+  .proof .item{padding:30px 24px 30px 0;border-right:1px solid var(--line);min-width:0}
+  .proof .item+.item{padding-left:24px}
+  .proof .item:last-child{border-right:0}
+  .proof b{display:block;font-weight:900;font-size:clamp(26px,3vw,38px);line-height:1;white-space:nowrap}
+  .proof span{display:block;margin-top:10px;font-size:13.5px;color:var(--muted);line-height:1.4}
+  @media (min-width:861px){.gallery figure{flex:0 0 calc((100% - 24px)/3);max-width:none}}
+  @media (max-width:820px){
+    .about{grid-template-columns:1fr;gap:36px}
+    .proof .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .proof .item:nth-child(2){border-right:0}
+    .proof .item:nth-child(3){padding-left:0}
+    .proof .item:nth-child(-n+2){border-bottom:1px solid var(--line)}
+    .proof .item{padding-block:22px}
+    .proof b{font-size:clamp(18px,5.6vw,26px)}
+  }
 </style>
 </head>
 <body>
@@ -145,6 +192,15 @@
   </div>
 </header>
 
+<div class="proof">
+  <div class="wrap grid">
+    <div class="item"><b>500 mil</b><span>inscritos no canal Altamira, que ajudou a fundar</span></div>
+    <div class="item"><b>+320 mi</b><span>de visualizações em lançamentos musicais</span></div>
+    <div class="item"><b>Top 24</b><span>Hype Tech House no Beatport</span></div>
+    <div class="item"><b>D-EDGE</b><span>Apresentação no clube referência mundial, em abril de 2025</span></div>
+  </div>
+</div>
+
 <main>
   <section>
     <div class="wrap">
@@ -155,12 +211,6 @@
           <h2>MUZYK — House, Tech House, eletrônico comercial e open format.</h2>
           <p class="sub">Sets pensados para o público e o momento: do clima de boas-vindas ao pico da festa, sem perder a identidade da marca.</p>
         </div>
-      </div>
-      <div class="stats">
-        <div class="stat"><div class="num">500 mil</div><span>inscritos</span></div>
-        <div class="stat"><div class="num">+320 mi</div><span>views</span></div>
-        <div class="stat"><div class="num">Top 24</div><span>Beatport</span></div>
-        <div class="stat"><div class="num">D-EDGE</div><span>já se apresentou</span></div>
       </div>
     </div>
   </section>
@@ -189,10 +239,10 @@
         <svg id="svg" viewBox="0 0 600 220" aria-label="Curva de energia das 10h às 14h">
           <defs>
             <linearGradient id="g" x1="0" x2="1">
-              <stop offset="0" stop-color="#a855f7"/><stop offset="1" stop-color="#ef4444"/>
+              <stop offset="0" stop-color="#e3261d"/><stop offset="1" stop-color="#ff7a45"/>
             </linearGradient>
             <linearGradient id="fill" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0" stop-color="#a855f7" stop-opacity=".35"/><stop offset="1" stop-color="#a855f7" stop-opacity="0"/>
+              <stop offset="0" stop-color="#e3261d" stop-opacity=".35"/><stop offset="1" stop-color="#e3261d" stop-opacity="0"/>
             </linearGradient>
           </defs>
           <g stroke="#26262b" stroke-width="1">
@@ -201,7 +251,7 @@
             <line x1="300" y1="40" x2="300" y2="190" stroke-dasharray="3 5"/>
             <line x1="440" y1="40" x2="440" y2="190" stroke-dasharray="3 5"/>
           </g>
-          <g fill="#9a9aa3" font-size="12" font-family="Inter">
+          <g fill="#9a9ca1" font-size="11" font-family="JetBrains Mono, monospace">
             <text x="20" y="210">10h</text><text x="150" y="210">11h</text><text x="290" y="210">12h</text><text x="430" y="210">13h</text><text x="556" y="210">14h</text>
           </g>
           <path id="area" fill="url(#fill)"/>
