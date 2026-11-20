@@ -172,6 +172,19 @@
     .proof .item{padding-block:22px}
     .proof b{font-size:clamp(18px,5.6vw,26px)}
   }
+
+  /* hero: vídeo em destaque, igual ao site */
+  .hero::before{display:none}
+  .hero{display:flex;flex-direction:column;justify-content:flex-end;min-height:100svh;padding:0 0 48px}
+  .hero-video{object-position:50% 35%}
+  .hero-shade{background:linear-gradient(0deg,#09090a 0%,rgba(9,9,10,.92) 42%,rgba(9,9,10,.35) 68%,rgba(9,9,10,.05) 100%)}
+  .hero .wrap{padding-top:38svh}
+  @media (min-width:861px){
+    .hero{justify-content:center;min-height:min(820px,100svh);padding:64px 0}
+    .hero .wrap{padding-top:0}
+    .hero-video{left:auto;right:0;width:62%;object-position:50% 40%;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 30%);mask-image:linear-gradient(90deg,transparent 0%,#000 30%)}
+    .hero-shade{background:linear-gradient(90deg,#09090a 0%,rgba(9,9,10,.6) 34%,transparent 55%),linear-gradient(0deg,#09090a 0%,transparent 18%)}
+  }
 </style>
 </head>
 <body>
