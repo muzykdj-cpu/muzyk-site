@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#09090a">
+<meta name="robots" content="noindex, nofollow">
+<meta name="format-detection" content="telephone=no, email=no">
+<title>MUZYK · Proposta para Marisol · Aniversário</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#09090a; --panel:#121214; --line:#26262b; --text:#f2f2f3; --muted:#9a9aa3;
+    --accent:#a855f7; --accent2:#ef4444; --glow:rgba(168,85,247,.35);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px}
+  h1,h2,h3,.logo,.num{font-family:"Space Grotesk",sans-serif}
+
+  /* HERO */
+  .hero{position:relative;overflow:hidden;padding:64px 0 56px;border-bottom:1px solid var(--line)}
+  .hero::before{content:"";position:absolute;inset:-40% -20% auto -20%;height:520px;
+    background:radial-gradient(closest-side,var(--glow),transparent 70%),
+               radial-gradient(closest-side at 80% 60%,rgba(239,68,68,.22),transparent 70%);
+    filter:blur(20px);animation:pulse 8s ease-in-out infinite alternate;pointer-events:none}
+  .lasers{position:absolute;inset:0;pointer-events:none;opacity:.35}
+  .lasers span{position:absolute;top:-10%;left:50%;width:1px;height:140%;background:linear-gradient(transparent,var(--accent),transparent);transform-origin:top center}
+  @keyframes pulse{from{transform:scale(1);opacity:.8}to{transform:scale(1.15);opacity:1}}
+  @keyframes sweep{0%{transform:rotate(-28deg)}50%{transform:rotate(28deg)}100%{transform:rotate(-28deg)}}
+  .hero .wrap{position:relative}
+  .logo{font-weight:700;letter-spacing:.18em;font-size:15px;color:var(--muted)}
+  .logo b{color:var(--text)}
+  .tag{display:inline-block;margin-top:28px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(168,85,247,.4);padding:6px 12px;border-radius:999px}
+  h1{font-size:clamp(34px,8vw,58px);line-height:1.02;margin:18px 0 16px;font-weight:700;letter-spacing:-.02em}
+  h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{color:var(--muted);font-size:17px;max-width:540px}
+
+  /* FACTS */
+  .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:34px}
+  .fact{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;padding:14px}
+  .fact small{display:block;color:var(--muted);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+  .fact strong{font-family:"Space Grotesk";font-size:18px}
+
+  section{padding:56px 0;border-bottom:1px solid var(--line)}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+  h2{font-size:clamp(26px,5.5vw,36px);line-height:1.1;letter-spacing:-.01em;margin-bottom:14px}
+  p.sub{color:var(--muted);max-width:560px}
+
+  /* STATS */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:26px}
+  .stat{border-left:2px solid var(--accent);padding:4px 0 4px 12px}
+  .stat .num{font-size:22px;font-weight:700}
+  .stat span{font-size:12px;color:var(--muted)}
+
+  /* CURVE */
+  .curve{margin-top:26px;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px 16px 12px;position:relative}
+  .curve svg{width:100%;height:auto;display:block;touch-action:none}
+  .tip{position:absolute;top:14px;right:16px;text-align:right;font-size:13px;color:var(--muted)}
+  .tip b{display:block;font-family:"Space Grotesk";font-size:18px;color:var(--text)}
+  .phases{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+  .phase{background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:12px;padding:12px}
+  .phase h3{font-size:14px;margin-bottom:4px}
+  .phase .t{font-size:11px;color:var(--accent);letter-spacing:.1em}
+  .phase p{font-size:13px;color:var(--muted)}
+
+  /* INCLUDED */
+  .list{list-style:none;margin-top:22px;display:grid;gap:10px}
+  .list li{display:flex;gap:12px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+  .ic{flex:0 0 28px;height:28px;border-radius:8px;display:grid;place-items:center;background:rgba(168,85,247,.15);color:var(--accent);font-weight:700}
+  .list b{display:block}
+  .list span{color:var(--muted);font-size:14px}
+
+  /* PRICE */
+  .price{margin-top:24px;border-radius:22px;padding:28px 24px;position:relative;overflow:hidden;
+    background:linear-gradient(135deg,rgba(168,85,247,.18),rgba(239,68,68,.12));border:1px solid rgba(168,85,247,.45)}
+  .price small{color:var(--muted);letter-spacing:.14em;text-transform:uppercase;font-size:12px}
+  .price .big{font-family:"Space Grotesk";font-size:clamp(46px,12vw,72px);font-weight:700;letter-spacing:-.03em;line-height:1;margin:8px 0 6px}
+  .price .big sup{font-size:.35em;vertical-align:top;margin-right:6px;color:var(--muted)}
+  .price p{color:var(--muted);font-size:14px}
+  .terms{margin-top:18px;display:grid;gap:8px;font-size:14px}
+  .terms div{display:flex;justify-content:space-between;gap:12px;border-top:1px dashed rgba(255,255,255,.12);padding-top:8px}
+  .terms div span:first-child{color:var(--muted)}
+
+  /* CTA */
+  .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:999px;font-weight:600;text-decoration:none;font-size:15px;border:1px solid var(--line);color:var(--text);background:transparent;cursor:pointer;font-family:inherit}
+  .btn.main{background:var(--text);color:#09090a;border-color:var(--text)}
+  .contact{margin-top:14px;color:var(--muted);font-size:14px}
+
+  footer{padding:56px 0 70px;text-align:center}
+  footer .sign{font-family:"Space Grotesk";font-size:22px;line-height:1.35;color:var(--muted)}
+  footer .sign b{color:var(--text)}
+  footer small{display:block;margin-top:22px;color:#5d5d66;font-size:12px}
+
+  /* MEDIA */
+  .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .hero-shade{position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(9,9,10,.55) 0%,rgba(9,9,10,.7) 55%,#09090a 100%)}
+  .hero .lasers,.hero .wrap{z-index:1}
+  .logo img{height:34px;width:auto;display:block}
+  .about{display:grid;grid-template-columns:1fr 1.2fr;gap:22px;align-items:center}
+  .about figure{border-radius:18px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/5}
+  .about img{width:100%;height:100%;object-fit:cover;display:block}
+  .gallery{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:24px;padding-bottom:10px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .gallery::-webkit-scrollbar{display:none}
+  .gallery figure{flex:0 0 78%;max-width:420px;scroll-snap-align:start;position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/5}
+  .gallery img{width:100%;height:100%;object-fit:cover;display:block}
+  .gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:30px 14px 12px;font-size:13px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.8))}
+  .count{margin-top:6px;font-size:12px;color:var(--muted);letter-spacing:.1em}
+  .closing{position:relative;min-height:440px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+  .closing>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .closing::after{content:"";position:absolute;inset:0;background:linear-gradient(#09090a 0%,rgba(9,9,10,.35) 35%,rgba(9,9,10,.85) 100%)}
+  .closing .wrap{position:relative;z-index:1}
+
+  @media (max-width:560px){
+    .about{grid-template-columns:1fr}
+    .about figure{aspect-ratio:1/1}
+    .facts{grid-template-columns:1fr 1fr}
+    .facts .fact:last-child{grid-column:span 2}
+    .stats{grid-template-columns:1fr 1fr;row-gap:18px}
+    .phases{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+
+  /* ===== Igual ao site MUZYK ===== */
+  :root{--bg:#09090a;--panel:#131416;--line:#26282c;--text:#f1f0ec;--muted:#9a9ca1;--accent:#e3261d;--accent2:#e3261d;--glow:rgba(227,38,29,.28);--steel:#8e9cb0;
+        --display:"Archivo",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace}
+  body{font-family:var(--display);font-size:16px}
+  .wrap{max-width:1180px;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+  h1,h2,h3,.fact strong,.price .big,.phase h3,.list b,.proof b{font-family:var(--display);font-stretch:125%}
+  h1{font-weight:900;text-transform:uppercase;font-size:clamp(28px,4.2vw,52px);line-height:1.04;letter-spacing:-.005em;max-width:18ch}
+  h1 em{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--accent)}
+  h2{font-weight:900;text-transform:uppercase;font-size:clamp(28px,4.4vw,48px);line-height:1.02;letter-spacing:-.01em}
+  .lead{color:#c9c9c6;max-width:46ch}
+  p.sub{color:#cfcfcb;max-width:60ch}
+  .eyebrow{font-family:var(--display);font-stretch:125%;font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:var(--steel);margin:0 0 18px;display:flex;align-items:center;gap:12px}
+  .eyebrow::before{content:"";width:28px;height:2px;background:var(--red,#e3261d)}
+  .tag,.fact small,.count,.phase .t,.price small,.terms,.contact,.tip span,footer small{font-family:var(--mono)}
+  .tag{border-radius:0;border-color:var(--accent);color:#fff;background:var(--accent);letter-spacing:.06em;font-size:12px;padding:8px 12px}
+  .logo img{height:44px}
+  .fact,.curve,.phase,.list li,.price,.gallery figure,.about figure,.ic{border-radius:0}
+  .fact strong{font-weight:800}
+  .about{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:64px}
+  .about figure{border:0}
+  .ic{background:rgba(227,38,29,.14);color:var(--accent)}
+  .price{background:linear-gradient(135deg,rgba(227,38,29,.16),rgba(227,38,29,.04));border-color:rgba(227,38,29,.5)}
+  .price .big{font-weight:900}
+  .btn{border-radius:0;font-family:var(--display);font-stretch:125%;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding:15px 22px;border-color:var(--text)}
+  .btn.main{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn.main:hover{background:#fff;border-color:#fff;color:var(--bg)}
+  footer .sign{font-family:var(--display);font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:clamp(18px,2.4vw,26px)}
+  .tip b{font-family:var(--display);font-stretch:125%;font-weight:900}
+  a[href^="tel"],a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important}
+  /* barra de números igual ao site */
+  .proof{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .proof .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+  .proof .item{padding:30px 24px 30px 0;border-right:1px solid var(--line);min-width:0}
+  .proof .item+.item{padding-left:24px}
+  .proof .item:last-child{border-right:0}
+  .proof b{display:block;font-weight:900;font-size:clamp(26px,3vw,38px);line-height:1;white-space:nowrap}
+  .proof span{display:block;margin-top:10px;font-size:13.5px;color:var(--muted);line-height:1.4}
+  @media (min-width:861px){.gallery figure{flex:0 0 calc((100% - 24px)/3);max-width:none}}
+  @media (max-width:820px){
+    .about{grid-template-columns:1fr;gap:36px}
+    .proof .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .proof .item:nth-child(2){border-right:0}
+    .proof .item:nth-child(3){padding-left:0}
+    .proof .item:nth-child(-n+2){border-bottom:1px solid var(--line)}
+    .proof .item{padding-block:22px}
+    .proof b{font-size:clamp(18px,5.6vw,26px)}
+  }
+
+  /* duas opções */
+  .options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:24px}
+  .opt{display:flex;flex-direction:column;margin-top:0;background:var(--panel);border:1px solid var(--line)}
+  .opt.featured{background:linear-gradient(135deg,rgba(227,38,29,.18),rgba(227,38,29,.04));border-color:rgba(227,38,29,.6)}
+  .opt h3{font-weight:900;text-transform:uppercase;font-size:18px;margin-top:6px}
+  .opt .big{margin:14px 0 4px}
+  .badge{position:absolute;top:0;right:0;background:var(--accent);color:#fff;font-family:var(--mono);font-size:11px;padding:6px 10px;letter-spacing:.08em;text-transform:uppercase}
+  .mini{list-style:none;margin:14px 0 22px;display:grid;gap:8px;font-size:14px;flex:1;align-content:start}
+  .mini li{padding-left:22px;position:relative}
+  .mini li::before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:700}
+  .mini li.off{color:var(--muted)}
+  .mini li.off::before{content:"–";color:var(--muted)}
+  .opt .btn{justify-content:center}
+  .terms.summary{margin-top:22px}
+  @media (max-width:760px){.options{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <video class="hero-video" autoplay muted loop playsinline poster="/img/hero-poster.jpg" aria-label="Pista lotada na D-EDGE durante set de MUZYK">
+    <source src="/img/hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-shade" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="logo"><img src="/img/logo.png" alt="MUZ¥K"></div>
+    <span class="tag">Proposta exclusiva · Marisol</span>
+    <h1>A trilha sonora do seu <em>aniversário</em>.</h1>
+    <p class="lead">Marisol, obrigado pelo contato. Preparei esta proposta para fazer do seu aniversário uma noite inesquecível, com os hits dos anos 80, pop e rock que fazem todo mundo cantar junto e pista cheia do começo ao fim.</p>
+    <div class="facts">
+      <div class="fact"><small>Data</small><strong>Sex · 11/12</strong></div>
+      <div class="fact"><small>Horário</small><strong>19h – 22h</strong></div>
+      <div class="fact"><small>Público</small><strong>80 a 120 pessoas</strong></div>
+    </div>
+  </div>
+</header>
+
+<div class="proof">
+  <div class="wrap grid">
+    <div class="item"><b>500 mil</b><span>inscritos no canal Altamira, que ajudou a fundar</span></div>
+    <div class="item"><b>+320 mi</b><span>de visualizações em lançamentos musicais</span></div>
+    <div class="item"><b>Top 24</b><span>Hype Tech House no Beatport</span></div>
+    <div class="item"><b>D-EDGE</b><span>Apresentação no clube referência mundial, em abril de 2025</span></div>
+  </div>
+</div>
+
+<main>
+  <section>
+    <div class="wrap">
+      <div class="about">
+        <figure><img src="/img/stand.jpg" alt="Retrato de MUZYK em fundo azul acinzentado"></figure>
+        <div>
+          <div class="eyebrow">Quem toca</div>
+          <h2>MUZYK — House, Tech House, eletrônico comercial e open format.</h2>
+          <p class="sub">Para o seu aniversário: hits dos anos 80, pop e rock, misturados na medida certa e lidos na hora a partir da pista, para todas as idades dançarem juntas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="gallery" id="gallery" style="margin-top:0">
+        <figure><img src="/img/crowd2.jpg" alt="Público dançando com as mãos para cima na D-EDGE" loading="lazy"></figure>
+        <figure><img src="/img/g-cabine.jpg" alt="Vista da cabine para a pista com luzes roxas e lasers" loading="lazy" style="object-position:50% 40%"></figure>
+        <figure><img src="/img/g-white.jpg" alt="Cartaz da White Party Pistinha Summer com MUZYK" loading="lazy"></figure>
+        <figure><img src="/img/g-pb.jpg" alt="MUZYK em preto e branco atrás da mesa Pioneer DJ" loading="lazy" style="object-position:50% 30%"></figure>
+        <figure><img src="/img/g-sunset.jpg" alt="Set ao pôr do sol com vista para as montanhas" loading="lazy"></figure>
+        <figure><img src="/img/g-roof.jpg" alt="MUZYK tocando ao ar livre com montanhas ao fundo" loading="lazy" style="object-position:50% 45%"></figure>
+      </div>
+      <div class="count" id="count">ARRASTE · 1/6</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">Planeje comigo</div>
+      <h2>A energia da noite, minuto a minuto.</h2>
+      <p class="sub">Toque ou passe o dedo na curva para ver o clima e o BPM de cada momento do evento.</p>
+      <div class="curve">
+        <div class="tip" id="tip"><b id="tipTime">19:00</b><span id="tipText">Recepção · 98 BPM</span></div>
+        <svg id="svg" viewBox="0 0 600 220" aria-label="Curva de energia das 19h às 22h">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0" stop-color="#e3261d"/><stop offset="1" stop-color="#ff7a45"/>
+            </linearGradient>
+            <linearGradient id="fill" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0" stop-color="#e3261d" stop-opacity=".35"/><stop offset="1" stop-color="#e3261d" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <g stroke="#26262b" stroke-width="1">
+            <line x1="20" y1="190" x2="580" y2="190"/>
+            <line x1="113" y1="40" x2="113" y2="190" stroke-dasharray="3 5"/>
+            <line x1="207" y1="40" x2="207" y2="190" stroke-dasharray="3 5"/>
+            <line x1="300" y1="40" x2="300" y2="190" stroke-dasharray="3 5"/>
+            <line x1="393" y1="40" x2="393" y2="190" stroke-dasharray="3 5"/>
+            <line x1="487" y1="40" x2="487" y2="190" stroke-dasharray="3 5"/>
+          </g>
+          <g fill="#9a9ca1" font-size="11" font-family="JetBrains Mono, monospace">
+            <text x="20" y="210">19h</text><text x="97" y="210">19h30</text><text x="197" y="210">20h</text><text x="284" y="210">20h30</text><text x="383" y="210">21h</text><text x="471" y="210">21h30</text><text x="560" y="210">22h</text>
+          </g>
+          <path id="area" fill="url(#fill)"/>
+          <path id="line" fill="none" stroke="url(#g)" stroke-width="3" stroke-linecap="round"/>
+          <line id="cursor" y1="40" y2="190" stroke="#f2f2f3" stroke-opacity=".35"/>
+          <circle id="dot" r="6" fill="#f2f2f3"/>
+        </svg>
+      </div>
+      <div class="phases">
+        <div class="phase"><div class="t">19H – 20H</div><h3>Recepção</h3><p>Pop e clássicos dos anos 80 em volume de conversa enquanto os convidados chegam e se encontram.</p></div>
+        <div class="phase"><div class="t">20H – 21H15</div><h3>Pista aberta</h3><p>Hits dos anos 80, pop e rock que todo mundo conhece. A energia sobe junto com a pista.</p></div>
+        <div class="phase"><div class="t">21H15 – 22H</div><h3>Pico e parabéns</h3><p>Os hinos para cantar junto, o momento do parabéns no auge e um final marcante.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">O que está incluso</div>
+      <h2>Você só se preocupa com os convidados.</h2>
+      <ul class="list">
+        <li><div class="ic">♪</div><div><b>Set de 3 horas</b><span>Das 19h às 22h: anos 80, pop e rock, ajustado ao público.</span></div></li>
+        <li><div class="ic">◎</div><div><b>Equipamento de DJ</b><span>Controladora/CDJs e mixer, levados e montados por mim.</span></div></li>
+        <li><div class="ic">▣</div><div><b>Som (caixas)</b><span>Sistema de som dimensionado para 80 a 120 pessoas.</span></div></li>
+        <li><div class="ic">✦</div><div><b>Iluminação de pista</b><span>Luzes para transformar o salão em pista de dança.</span></div></li>
+        <li><div class="ic">☁</div><div><b>Máquina de fumaça</b><span>Para dar clima de festa nos momentos de pico.</span></div></li>
+        <li><div class="ic">✓</div><div><b>Montagem e passagem de som</b><span>Chego antes para tudo estar pronto às 19h.</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="proposta">
+    <div class="wrap">
+      <div class="eyebrow">Investimento</div>
+      <h2>Sua proposta.</h2>
+      <div class="price">
+        <small>Valor total</small>
+        <div class="big"><sup>R$</sup>1.800</div>
+        <p>DJ + equipamento + som + iluminação + fumaça · 3 horas de set</p>
+      </div>
+      <div class="terms summary">
+        <div><span>Evento</span><span>Aniversário</span></div>
+        <div><span>Local</span><span>Salão de Festas · Condomínio Genesis 1</span></div>
+        <div><span>Data</span><span>Sexta, 11/12/2026</span></div>
+        <div><span>Horário</span><span>19h às 22h</span></div>
+        <div><span>Pagamento</span><span>50% na confirmação · 50% no dia</span></div>
+      </div>
+      <div class="cta">
+        <a class="btn main" href="https://wa.me/5511974203254?text=Oi%20Igor%21%20Quero%20confirmar%20o%20MUZYK%20no%20meu%20anivers%C3%A1rio%20dia%2011/12%2C%20das%2019h%20%C3%A0s%2022h%2C%20no%20Sal%C3%A3o%20de%20Festas%20do%20Condom%C3%ADnio%20Genesis%201." target="_blank" rel="noopener">Confirmar pelo WhatsApp →</a>
+        <button class="btn" id="copy">Copiar telefone</button>
+      </div>
+      <p class="contact">WhatsApp (11) 9 7420-3254 · muzykdj@gmail.com · @igormuzykdj</p>
+      <p class="contact">A data fica reservada mediante confirmação e pagamento do sinal.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="sign">Now we are one<br>We are frequency<br><b>We are MUZYK</b></div>
+    <small>MUZ¥K · Proposta preparada para Marisol</small>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // energy (0-1) and BPM by minute offset from 10:00
+  const pts=[[0,.15,98],[30,.25,102],[60,.4,110],[90,.55,116],[120,.68,120],[150,.82,124],[170,1,128],[180,.85,124]];
+  const X=m=>20+m/180*560, Y=e=>190-e*150;
+  const msg=m=>m<60?"Recepção":m<135?"Pista aberta":m<175?"Pico e parabéns":"Fechamento";
+  let d="";
+  pts.forEach((p,i)=>{ if(!i){d+=`M${X(p[0])},${Y(p[1])}`;return}
+    const q=pts[i-1], cx=(X(q[0])+X(p[0]))/2; d+=` C${cx},${Y(q[1])} ${cx},${Y(p[1])} ${X(p[0])},${Y(p[1])}`; });
+  document.getElementById('line').setAttribute('d',d);
+  document.getElementById('area').setAttribute('d',d+` L580,190 L20,190 Z`);
+  const svg=document.getElementById('svg'),dot=document.getElementById('dot'),cur=document.getElementById('cursor');
+  function at(m){ for(let i=1;i<pts.length;i++){ if(m<=pts[i][0]){const a=pts[i-1],b=pts[i],t=(m-a[0])/(b[0]-a[0]),s=t*t*(3-2*t);return [a[1]+(b[1]-a[1])*s, Math.round(a[2]+(b[2]-a[2])*t)];}} return [pts.at(-1)[1],pts.at(-1)[2]]; }
+  function set(m){ m=Math.max(0,Math.min(180,m)); const [e,b]=at(m);
+    dot.setAttribute('cx',X(m));dot.setAttribute('cy',Y(e));cur.setAttribute('x1',X(m));cur.setAttribute('x2',X(m));
+    const tot=19*60+Math.round(m), h=Math.floor(tot/60), mm=String(tot%60).padStart(2,'0');
+    document.getElementById('tipTime').textContent=`${h}:${mm==='60'?'00':mm}`;
+    document.getElementById('tipText').textContent=`${msg(m)} · ${b} BPM`; }
+  function move(ev){ const r=svg.getBoundingClientRect(); const x=(ev.touches?ev.touches[0].clientX:ev.clientX)-r.left; set(((x/r.width*600)-20)/560*180); }
+  svg.addEventListener('pointermove',move); svg.addEventListener('pointerdown',move);
+  svg.addEventListener('touchmove',e=>{move(e);},{passive:true});
+  set(0);
+  const gal=document.getElementById('gallery'),cnt=document.getElementById('count');
+  // autoplay: avança a cada 3s, volta ao início no fim, pausa quando a pessoa mexe
+  let pausedUntil=0;
+  const pause=()=>{pausedUntil=Date.now()+6000;};
+  ['pointerdown','touchstart','wheel'].forEach(ev=>gal.addEventListener(ev,pause,{passive:true}));
+  setInterval(()=>{
+    if(Date.now()<pausedUntil||document.hidden)return;
+    const f=gal.querySelector('figure');const w=f.offsetWidth+12;
+    const atEnd=gal.scrollLeft+gal.clientWidth>=gal.scrollWidth-4;
+    gal.scrollTo({left:atEnd?0:gal.scrollLeft+w,behavior:'smooth'});
+  },3000);
+  gal.addEventListener('scroll',()=>{const f=gal.querySelector('figure');const w=f.offsetWidth+12;cnt.textContent='ARRASTE · '+(Math.min(6,Math.round(gal.scrollLeft/w)+1))+'/6';},{passive:true});
+  document.getElementById('copy').addEventListener('click',async e=>{
+    try{await navigator.clipboard.writeText('+55 11 97420-3254');e.target.textContent='Copiado ✓';}
+    catch(_){e.target.textContent='(11) 9 7420-3254';}
+  });
+})();
+</script>
+</body>
+</html>
